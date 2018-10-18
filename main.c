@@ -10,6 +10,8 @@
 #include <netdb.h>
 #include <netinet/tcp.h>
 
+#define test_round      1    /* 10/18/2018, 4pm */
+
 int flb_net_tcp_fd_connect(int fd, char *host, int port, int family)
 {
     int ret;
@@ -86,6 +88,8 @@ int main(int argc, char **argv)
         fprintf(stderr, "Usage: test_getaddrinfo host port\n");
         exit(EXIT_FAILURE);
     }
+
+    printf("test round => %i\n", test_round);
 
     fd = flb_net_socket_create(AF_INET, 0);
     if (fd == -1) {
